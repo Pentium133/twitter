@@ -24,11 +24,14 @@ RSpec.describe "/posts", type: :request do
   end
 
   let(:valid_attributes) {
-    { content: 'Hello, world!' }
+    {
+      content: 'Hello, world!',
+      user: user
+    }
   }
 
   let(:invalid_attributes) {
-    { content: '' }
+    { content: '', user: nil }
   }
 
   describe "GET /index" do
@@ -93,7 +96,10 @@ RSpec.describe "/posts", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        { content: 'Hello, new world!' }
+        {
+          content: 'Hello, new world!',
+          user: user
+        }
       }
 
       it "updates the requested post" do
