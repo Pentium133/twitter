@@ -41,6 +41,7 @@ group :development, :test do
   gem "binding_of_caller"
 
   gem "rubocop", require: false
+  gem "annotate"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
@@ -53,4 +54,3 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
-
