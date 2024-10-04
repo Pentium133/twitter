@@ -1,5 +1,14 @@
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-  <% end %>
+<div id="posts-container">
+  <div class="column1" id="left-column">
+    <img src="https://placehold.co/200x250" width="200" height="250">
+    <p>You: <%= current_user.email %></p>
+  </div>
+
+  <div class="column2" id="right-column">
+    <% @posts.each_with_index do |post, index| %>
+      <% if index.odd? %>
+        <%= render post %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
