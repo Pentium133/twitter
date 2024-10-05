@@ -1,3 +1,5 @@
+<p style="color: green"><%= notice %></p>
+
 <div id="posts-container">
   <div class="column1" id="left-column">
     <img src="https://placehold.co/200x250" width="200" height="250">
@@ -19,10 +21,9 @@
   </div>
 
   <div class="column2" id="right-column">
-    <% current_user.posts.each_with_index do |post, index| %>
-      <% if index.odd? %>
-        <%= render post %>
-      <% end %>
+    <h3>Posts feed</h3>
+    <% @posts.each_with_index do |post| %>
+      <%= render post %>
     <% end %>
   </div>
 </div>
