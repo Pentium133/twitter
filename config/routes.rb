@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :users
   devise_for :users
+
+  resources :users
   resources :posts
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

@@ -25,4 +25,11 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :followers, dependent: :destroy
   has_many :users, through: :followers
+
+  has_many :following, class_name: "Follower", foreign_key: "follower_id", dependent: :destroy
+
+
+  def follow_to(user)
+    followers.create(user: user) unless self == user || followers.exists?(user_id: user.id)
+  end
 end

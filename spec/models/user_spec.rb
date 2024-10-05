@@ -19,7 +19,25 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it { is_expected.to have_many(:posts) }
-  it { is_expected.to have_many(:followers) }
-  it { is_expected.to have_many(:users).through(:followers) }
+  describe 'associations' do
+    it { is_expected.to have_many(:posts) }
+    it { is_expected.to have_many(:followers) }
+    it { is_expected.to have_many(:users).through(:followers) }
+    it { should have_many(:following).class_name('Follower').with_foreign_key('follower_id').dependent(:destroy) }
+  end
+
+  describe 'follow_to' do
+    let(:user) { create(:user) }
+    let(:other_user) { create(:user) }
+
+    context 'when the user is follower' do
+      it 'creates a follow relationship' do
+        expect {
+          user.follow_to(other_user)
+        }.to change(Follower, :count).by(1)
+
+        expect(user.followers.exists?(other_user)).to be_truthy
+      end
+    end
+  end
 end
