@@ -28,8 +28,12 @@ class User < ApplicationRecord
 
   has_many :following, class_name: "Follower", foreign_key: "follower_id", dependent: :destroy
 
-
   def follow_to(user)
-    followers.create(user: user) unless self == user || followers.exists?(user_id: user.id)
+    following.create(user: user) unless self == user || following.exists?(user_id: user.id)
+  end
+
+  def unfollow_from(user)
+    follow = following.find_by(user: user)
+    follow.destroy if follow
   end
 end

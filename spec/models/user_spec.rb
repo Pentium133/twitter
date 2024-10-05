@@ -31,12 +31,23 @@ RSpec.describe User, type: :model do
     let(:other_user) { create(:user) }
 
     context 'when the user is follower' do
-      it 'creates a follow relationship' do
+      it 'creates a follow' do
         expect {
           user.follow_to(other_user)
         }.to change(Follower, :count).by(1)
 
-        expect(user.followers.exists?(other_user)).to be_truthy
+        expect(Follower.exists?(follower_id: user.id, user_id: other_user.id)).to be_truthy
+      end
+    end
+
+    context 'when the user is following another user' do
+      it 'removes the follow' do
+        user.follow_to(other_user)
+        expect {
+          user.unfollow_from(other_user)
+        }.to change(Follower, :count).by(-1)
+
+        expect(Follower.exists?(follower_id: user.id, user_id: other_user.id)).to be_falsey
       end
     end
   end
