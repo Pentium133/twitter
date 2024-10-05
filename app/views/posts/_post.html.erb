@@ -10,5 +10,9 @@
     <strong>Post content:</strong>
     <%= post.content %>
   </p>
-
+  <p>
+    <strong>Created at:</strong>
+    <%= post.created_at %>
+  </p>
+  <p><%= link_to 'show', post_path(post) %></p>
 </div>
