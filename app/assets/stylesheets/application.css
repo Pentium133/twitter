@@ -53,3 +53,8 @@ body {
   margin-right: 20px;
   font-size: 20px;
 }
+
+.your-post {
+  background-color: #24f242;
+  padding: 10px;
+}

@@ -22,6 +22,9 @@
 
   <div class="column2" id="right-column">
     <h3>Posts feed</h3>
+
+    <%= render partial: 'posts/form', locals: { post: current_user.posts.build } %>
+
     <% @posts.each_with_index do |post| %>
       <%= render post %>
     <% end %>
