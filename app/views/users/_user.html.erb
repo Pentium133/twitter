@@ -1,7 +1,28 @@
-<div id="<%= dom_id user %>">
-  <p>
-    <strong>Email:</strong>
-    <%= user.email %>
-  </p>
+<div id="posts-container">
+  <div class="column1" id="left-column">
+    <img src="https://placehold.co/200x250" width="200" height="250">
+    <p>Show: <%= @user.email %></p>
 
+    <p>Followers</p>
+    <ul>
+      <% @user.followers.includes(:follower).each do |follower| %>
+      <li><%= follower.follower.email %></li>
+      <% end %>
+    </ul>
+
+    <p>Following for</p>
+    <ul>
+      <% @user.following.includes(:user).each do |user| %>
+      <li><%= user.user.email %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="column2" id="right-column">
+    <% @user.posts.each_with_index do |post, index| %>
+      <% if index.odd? %>
+        <%= render post %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

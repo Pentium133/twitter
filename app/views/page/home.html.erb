@@ -6,14 +6,14 @@
     <p>Followers</p>
     <ul>
       <% current_user.followers.includes(:follower).each do |follower| %>
-      <li><%= follower.follower.email %></li>
+      <li><%= link_to follower.follower.email, user_path(follower.follower) %></li>
       <% end %>
     </ul>
 
     <p>Following for</p>
     <ul>
       <% current_user.following.includes(:user).each do |user| %>
-      <li><%= user.user.email %></li>
+      <li><%= link_to user.user.email, user_path(user.user) %></li>
       <% end %>
     </ul>
   </div>
