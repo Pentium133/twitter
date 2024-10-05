@@ -1,0 +1,11 @@
+<li>
+  <strong><%= comment.user.email %>:</strong>
+  <p><%= comment.content %></p>
+  <%= render 'comments/form_to_comment', comment: comment, post: comment.post  %>
+  <hr/>
+  <ul>
+    <% comment.replies.each do |comment| %>
+      <%= render comment %>
+    <% end %>
+  </ul>
+</li>

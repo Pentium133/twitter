@@ -24,6 +24,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:followers) }
     it { is_expected.to have_many(:users).through(:followers) }
     it { should have_many(:following).class_name('Follower').with_foreign_key('follower_id').dependent(:destroy) }
+    it { should have_many(:comments).dependent(:destroy) }
   end
 
   describe 'follow_to' do

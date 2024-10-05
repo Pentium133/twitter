@@ -14,5 +14,5 @@
     <strong>Created at:</strong>
     <%= post.created_at %>
   </p>
-  <p><%= link_to 'show', post_path(post) %></p>
+  <p><%= link_to 'show', post_path(post) %> (<%= post.comments.count %> comment's)</p>
 </div>
