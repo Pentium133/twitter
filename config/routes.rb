@@ -5,10 +5,10 @@ Rails.application.routes.draw do
     resource :follows, only: [ :create, :destroy ]
   end
   resources :posts do
-    resources :comments, only: [:create]
+    resources :comments, only: [ :create ]
   end
   resources :comments do
-    resources :comments, only: [:create]
+    resources :comments, only: [ :create ]
   end
 
 
