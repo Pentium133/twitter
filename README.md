@@ -1,3 +1,7 @@
+
+![db-schema](https://github.com/user-attachments/assets/527cd326-86ef-425d-a79f-95ca3fd4d3b9)
+
+
 # README
 
 This README would normally document whatever steps are necessary to get the
