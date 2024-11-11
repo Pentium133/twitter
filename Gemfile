@@ -45,7 +45,7 @@ group :development, :test do
 
   gem "factory_bot_rails"
   gem "faker"
-  gem "rspec-rails", "~> 7.0.0"
+  gem "rspec-rails", "~> 7.1.0"
   gem "shoulda-matchers", "~> 6.0"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
